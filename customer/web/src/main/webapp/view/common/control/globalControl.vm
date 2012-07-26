@@ -1,0 +1,24 @@
+#set($input_prefix = '_input')
+<script type="text/javascript">
+	var tableList = document.getElementById("Gv_MainList");
+	if(tableList != null){
+		var tr = tableList.getElementsByTagName("tr");
+		for (var i=0;i<tr.length;i++)
+		{
+			if (i%2==0)
+				tr[i].className="spl";
+			else
+				tr[i].className="";
+		}
+	}
+	
+	j(function() {
+	  	var inputs = document.getElementsByTagName("INPUT");
+		for(var n=0; n<inputs.length; n++){
+			var plugin = inputs[n].getAttribute("plugin");
+			if(plugin == "date"){
+				j(inputs[n]).datepick();
+  	}
+		}
+	});
+</script>

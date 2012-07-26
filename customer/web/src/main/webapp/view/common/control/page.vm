@@ -1,0 +1,51 @@
+<p class="Split">
+#if($query)
+	共$query.totalItem条记录，当前 $query.pageFristItem - $query.pageLastItem 第$query.currentPage页/共$query.totalPage页 
+	<a href="javascript:gotoPage('$formName', 1);">第一页</a>
+    #if($query.currentPage>1)
+		#set($previousPage=${query.currentPage} - 1)
+    	<a href="javascript:gotoPage('$formName', $previousPage);">前一页</a>
+	#end
+	#set ($temp=$query.currentPage/5)
+    #if($query.currentPage%5==0)
+    	#set ($n= $temp - 1)
+    #else
+    	#set ($n = $temp)
+    #end
+    
+    #set ($leftPreviousePage=$n*5)
+    #set ($leftPage=$leftPreviousePage + 1) 	
+    #if($query.currentPage>5)
+    	<a href="javascript:gotoPage('$formName', $leftPreviousePage);">...</a>
+    #end
+    
+    #set($curRightPage=$n*5+5)
+    #if($query.currentPage>$curRightPage)
+    	#set ($rightPage=$curRightPage)
+    #else
+    	#set ($rightPage=$query.currentPage)
+    #end
+    #foreach( $velocityCount in [$leftPage..$rightPage] )
+    	#if($velocityCount!=$query.currentPage)
+    		<a href="javascript:gotoPage('$formName', $velocityCount);">$velocityCount</a>
+    			#else
+    		<b>$velocityCount</b>	
+    	#end
+    #end
+    
+    #if($query.totalPage > $rightPage)
+    	#set ($rightNextPage=$rightPage + 1)
+    	<a href="javascript:gotoPage('$formName', $rightNextPage);">...</a>
+    #end
+    #if($query.currentPage < $query.totalPage)
+		#set($nextPage=${query.currentPage} + 1)
+    	<a href="javascript:gotoPage('$formName', $nextPage);">后一页</a>
+    #end 
+    <a href="javascript:gotoPage('$formName', $query.totalPage);">最末页</a>
+#else
+	第1页/共1页 
+#end
+#if($exportExcelAction)
+<a href="javascript:exportExcel('$formName', '#springUrl('')$exportExcelAction')">导出Excel文件</a>
+#end
+</p>

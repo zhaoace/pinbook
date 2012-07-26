@@ -1,0 +1,47 @@
+@import "Goble.css";
+
+.LoginForm{ margin:124px auto; margin-bottom:95px; background:url(../images/LoginTit.jpg) no-repeat; width:891px; padding-top:188px;}
+.BotLine{ height:8px; font-size:0px; line-height:0px; background:url(../images/blrline.jpg) no-repeat center center}
+p.lastdate{ padding-top:26px; text-align:right; font-family:"宋体"; padding-right:5px}
+
+.Wrap{ margin:0px auto; width:984px;}
+.Title{ height:42px; position:relative}
+.Title p{ position:absolute; right:10px; top:18px}
+.Title p span{ color:#999; font-size:14px; margin:0px 5px 0px 5px}
+
+.TableForm{ margin-top:16px; margin-bottom:32px;}
+.TableForm .Mtit{ background:url(../images/Mtit.jpg) no-repeat; height:32px; font-size:14px; font-weight:bold; line-height:32px; padding-left:16px; display:block}
+.TableForm .AreaTb{ padding-left:5px; padding-right:5px; border:1px solid #d4d4d4; border-top:none;}
+.TableForm .RealTb{ border:1px solid #d4d4d4; border-top:none; border-bottom:none}
+.AreaTb table tr td{ height:35px;}
+.AreaTb table tr td.messageBar{ height:40px; text-align:center;}
+.AreaTb table tr td.buttonBar{ height:45px; text-align:center; vertical-align:bottom;}
+.RealTb table tr th{ background:#f4f4f4; height:28px; border-bottom:2px solid #d3d3d3; padding-left:20px; text-align:left; vertical-align:middle; font-weight:bold; color:#666666}
+.RealTb table tr td{ background:#f0f3f8; height:50px; border-bottom:1px solid #cedbf1; padding-left:20px; text-align:left; vertical-align:middle; word-break:break-all;}
+.RealTb table tr.spl td{ background:#fafafa}
+.RealTb table tr td a{ color:#1b79bf}
+
+.TableForm p.Split{text-align:center; background:url(../images/greybot.jpg) no-repeat; height:40px; line-height:40px; }
+.TableForm p.Split a{ color:#1b79bf; margin-right:5px }
+
+.AddForm{ background:url(../images/newdot.jpg) repeat-x left top; padding-top:12px;  text-align:left; padding-bottom:10px}
+
+.bluebtn{ background:url(../images/bluebtn.jpg) no-repeat; width:101px; height:39px; vertical-align:middle; text-align:center; font-size:14px; font-weight:bold; color:white; padding-top:4px; border:none}
+.whitebtn{ background:url(../images/whitebtn.jpg) no-repeat; width:111px; height:34px; vertical-align:middle; text-align:center; font-size:14px; font-weight:bold; color:#007def; padding-top:2px; border:none}
+.whitebtn1{ 
+	height:34px; vertical-align:middle; text-align:center; font-size:14px; font-weight:bold; color:#007def; padding-top:2px;
+    filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod='scale',src='../images/whitebtn.jpg')
+}
+
+.message{ color:red; font-size:14px; margin:0px 5px 0px 5px}
+
+.file{vertical-align:middle;font-size:16px}
+
+#thinList td{
+	 height:22px;
+	 padding:0px;
+	 border-left:1px solid #cedbf1; 
+}
+#thinList th{
+	  border-bottom:1px solid #cedbf1;
+}

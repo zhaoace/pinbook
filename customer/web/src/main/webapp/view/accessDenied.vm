@@ -1,0 +1,15 @@
+#set($page_title = '无权访问')
+<div class="TableForm">
+	<h2 class="Mtit">您无权访问此页面!</h2>
+	<div class="AreaTb">
+		<div>
+    		<img src="#springUrl('/htdocs/images/fail.png')"/>
+    		<label style="font-size:30px;font-weight:bold;">失败啦！</label>
+		</div>
+		<div style="float:right;margin-top:-20px;margin-right:40px;">
+            <a href="javascript:history.go(-1)">后退</a> 或者
+            <a href="#springUrl('/j_spring_security_logout')" target="_self">重新登陆</a> 或者
+            <a href="#springUrl('/index.htm')" target="_self">返回首页</a>
+    	</div>
+    </div>
+</div>

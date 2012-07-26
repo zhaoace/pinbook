@@ -1,0 +1,77 @@
+/* Style for tabClass tabs */
+.tabClass {
+	padding: 0px;
+}
+
+.tabClass li {
+	list-style: none;
+	float: left;
+}
+
+.tabClass ul {
+	list-style: none;
+	margin-bottom: -35px;
+}
+
+.tabClass ul a {
+	display: block;
+	text-decoration: none !important;
+	margin: 1px;
+	margin-left: 0;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 10px;
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 0px;
+	LINE-HEIGHT: 24px;
+}
+
+* html .tabClass ul a {
+	
+}
+
+.tabClass ul a:hover {
+	FLOAT: left;
+	BORDER: #A5C7F5 1px solid;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 10px;
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 0px;
+	LINE-HEIGHT: 24px;
+	BACKGROUND: #B8D0F3;
+	CURSOR: pointer;
+	color: blue;
+}
+
+.tabClass ul a.selected {
+	FLOAT: left;
+	BORDER-LEFT: #5A9CCA 1px solid;
+	BORDER-TOP: #5A9CCA 1px solid;
+	BORDER-RIGHT: #5A9CCA 1px solid;
+	BORDER-BOTTOM: #1C90E1 1px solid;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 10px;
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 0px;
+	FONT-WEIGHT: bold;
+	BACKGROUND: #1C90E1;
+	COLOR: #FFFFFF;
+	HEIGHT: 25px;
+	LINE-HEIGHT: 24px;
+}
+
+.tabClass div {
+	clear: left;
+	background: snow;
+}
+
+.tabClass div a {
+	color: #000;
+	font-weight: bold;
+}
+
+.tabContent {
+	BORDER-LEFT: #1C90E1 1px solid;
+	BORDER-TOP: #1C90E1 1px solid;
+	BORDER-RIGHT: #1C90E1 1px solid;
+	BORDER-BOTTOM: #1C90E1 1px solid;
+}

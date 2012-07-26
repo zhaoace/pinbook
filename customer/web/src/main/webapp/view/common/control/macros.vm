@@ -1,0 +1,118 @@
+#macro( showDateTime $value)
+	$!dateUtil.format($value, 'yyyy-MM-dd HH:mm:ss')
+#end
+
+#macro( showDefaultStartDateTime $value)
+	#if ($value)
+		$!dateUtil.format($value, 'yyyy-MM-dd HH:mm:ss')
+	#else
+		$dateUtil.getWebTodayString() 00:00:00
+	#end
+#end
+
+#macro( showDefaultEndDateTime $value)
+	#if ($value)
+		$!dateUtil.format($value, 'yyyy-MM-dd HH:mm:ss')
+	#else
+		2099-12-31 00:00:00
+	#end
+#end
+
+#macro( showDate $value)
+	$!dateUtil.format($value, 'yyyy-MM-dd')
+#end
+
+#macro( getTime )
+	$!dateUtil.getCurrentTS().getTime()
+#end
+
+#macro( showDateToWebFormat $value)
+	$!dateUtil.convert2WebFormat($value)
+#end
+
+#macro( enumIterator $clazz  $compareValue)
+	#foreach($enumItem in $jdkEnumUtil.getEnumList($clazz))
+		<option value="$enumItem.code" #if($stringUtil.equals($enumItem.code, $compareValue))selected#end>$enumItem.message</option>	
+	#end
+#end
+
+#macro ( enumMessage $clazz $compareProperty $returnProperty $compareValue)
+  $!jdkEnumUtil.getValueByKey($clazz, $compareProperty, $returnProperty, $compareValue)
+#end
+
+#macro ( enumMessageByCode $clazz $compareValue)
+  $!jdkEnumUtil.getValueByKey($clazz, "code", "message", $compareValue)
+#end
+
+#macro ( enumMessageByName $clazz $compareValue)
+  $!jdkEnumUtil.getValueByKey($clazz, "name", "message", $compareValue)
+#end
+
+#macro( message $errorMsg $returnMsg $cols)
+	#if($errorMsg)
+	<tr>
+        <td colspan="$!cols" class="messageBar"><label class="message">错误：$errorMsg</label></td>
+    </tr>
+	#end
+	#if($returnMsg)
+	<tr>
+        <td colspan="$!cols" class="messageBar"><label class="message">提示：$returnMsg</label></td>
+    </tr>
+	#end
+#end
+
+#macro( fieldMessage $message)
+	#if($message)
+	<label class="message">$message</label>
+	#end
+#end
+
+#macro( fieldMessages $message)
+	#if($message)
+	  #foreach($error in $message) <label class="message">$error</label> <br> #end
+	#end
+#end
+
+#macro( showSubMenu $parentMenu )
+    #if(!$parentMenu.children.isEmpty())
+    <ul>
+		#foreach($subMenu in ${parentMenu.children})
+           <li>
+			#if ($stringUtil.equals($subMenu.url, "#"))
+            <a href="javascript:function(){};" class="fly">$!subMenu.name</a>
+            #showSubMenu($subMenu)
+            #else 
+             <a href="#springUrl($!subMenu.url)" >$!subMenu.name</a>
+            #end
+            </li>
+        #end
+	</ul>
+	#end
+#end
+
+#macro( showDateNoSeconds $value)
+	$!dateUtil.format($value, 'yyyy-MM-dd HH:mm')
+#end
+
+#macro( isBlank $value)
+	$!stringUtil.isBlank($value)
+#end
+
+#macro( left $value $length)
+	#if($value)
+		#if($value.length()> $length)
+    		<a id="tip" href="#">
+    			$!stringUtil.left($value,$length)...
+    			<span id="tip_info">$value</span>
+    		</a>
+		#else
+			$value
+		#end
+	#end
+#end
+
+#macro( enumIteratorItem $clazz  $compareValue)
+	#foreach($enumItem in $jdkEnumUtil.getEnumList($clazz))
+		<option value="$enumItem" #if($stringUtil.equals($enumItem.code, $compareValue))selected#end>$enumItem.message</option>	
+	#end
+#end

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>#if($page_title) $page_title #else 品书 #end</title>
+
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="0">
+		
+	<LINK href="#springUrl('/htdocs/css/Style.css')" type="text/css" rel="stylesheet">
+	<LINK href="#springUrl('/htdocs/css/menu.css')" type="text/css" rel="stylesheet">
+	<LINK href="#springUrl('/htdocs/css/jquery.idtabs.css')" type="text/css" rel="stylesheet">
+	<LINK href="#springUrl('/htdocs/css/nyroModal.css')" type="text/css" rel="stylesheet">
+	<LINK href="#springUrl('/htdocs/css/datepick/humanity.datepick.css')" type="text/css" rel="stylesheet">
+	<LINK href="#springUrl('/htdocs/css/datepick/ui-humanity.datepick.css')" type="text/css" rel="stylesheet">
+	
+	<script src="#springUrl('/htdocs/scripts/common.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/menuHover.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/jquery-1.5.1.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/jquery.nyroModal.custom.js')" type="text/javascript"></script>
+	<script type="text/javascript">
+		var rootPath = '#springUrl("")';
+		var j = jQuery.noConflict();
+		jQuery.fx.off = true;
+		j(function() {
+          j('.nyroModal').nyroModal();
+        });
+    </script>
+	<script src="#springUrl('/htdocs/scripts/jquery.bgiframe.min.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/jquery.idTabs.min.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/jquery.maxlength.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/datepick/jquery.datepick.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/datepick/jquery.datepick-zh-CN.js')" type="text/javascript"></script>
+	<script src="#springUrl('/htdocs/scripts/qtip/jquery.qtip-1.0.0.min.js')" type="text/javascript"></script>
+	
+</head>
+<body>
+	<div class="Wrap">
+        <div class="Title">
+    		<p>
+				<a href="#springUrl('/index.htm')">返回首页</a>
+			</p>
+        </div>
+    	$screen_content
+	</div>
+	#parse("/common/control/globalControl.vm")
+</body>
+</html>

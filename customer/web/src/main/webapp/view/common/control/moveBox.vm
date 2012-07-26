@@ -1,0 +1,63 @@
+<table border="0" align="center" cellpadding="0" cellspacing="5" class="CardWord">
+    <tr>
+        <td align="center"><strong>未选</strong></td>
+    	<td>&nbsp;</td>
+        <td align="center"><strong>已选</strong></td>
+    </tr>
+    <tr>
+    	<td>
+            <select multiple id="leftSelect" style="width: 280px;height:280px;">
+    			#foreach($left in $leftList)
+    			<option value="$left.value">$left.name</option>
+    			#end
+    		</select>
+        </td>
+        <td>
+    		<input class="whitebtn" id="toRight" type="button" value="右移" /><br />
+    		<input class="whitebtn" id="toLeft" type="button" value="左移" /><br /><br />
+    		<input class="whitebtn" id="allToRight" type="button" value="全部右移" /><br />
+    		<input class="whitebtn" id="allToLeft" type="button" value="全部左移" />
+        </td>
+        <td>
+            <select multiple id="rightSelect" style="width: 280px;height:280px;">
+    			#foreach($right in $rightList)
+    			<option value="$right.value">$right.name</option>
+    			#end
+            </select>
+        </td>
+    </tr>
+	<tr>
+		<td colspan="3" align="center">
+            <label class="OrgTip">友情提示：可以多选（CTRL/SHIFT）或者双击来选择数据</label> 
+		</td>
+    </tr>
+</table>
+<script type="text/javascript">
+j('#toLeft').click(function() {
+	j('#rightSelect option:selected').remove().appendTo('#leftSelect');	   
+});
+j('#toRight').click(function() {
+	j('#leftSelect option:selected').remove().appendTo('#rightSelect');	   
+});
+j("#allToLeft").click(function(){
+    j("#rightSelect option").appendTo("#leftSelect");
+});
+j("#allToRight").click(function(){
+    j("#leftSelect option").appendTo("#rightSelect");
+});
+j("#leftSelect").dblclick(function(){
+    j("option:selected",this).appendTo("#rightSelect");
+});
+j("#leftSelect").dblclick(function(){
+    j("option:selected",this).appendTo("#rightSelect");
+});
+j("#rightSelect").dblclick(function(){
+    j("option:selected",this).appendTo("#leftSelect");
+});
+function getLeftValues(){
+	return getAllSelectValue('leftSelect');
+}
+function getRightValues(){
+	return getAllSelectValue('rightSelect');
+}
+</script>

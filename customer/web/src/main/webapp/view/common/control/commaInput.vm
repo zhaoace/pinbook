@@ -1,0 +1,77 @@
+<table border="0" align="center" cellpadding="0" cellspacing="5" class="CardWord">
+    <tr>
+        <td><input class="newbord ntxt2" type="text" name="ciInput" id="ciInput"></td>
+    	<td><input type="button" name="ciAdd" id="ciAdd" class="whitebtn" value="添加"></td>
+    </tr>
+    <tr>
+    	<td>
+            <select multiple id="ciValue" style="width: 280px;height:280px;">
+    			#foreach($value in $commaInputValueList)
+    			<option value="$value">$value</option>
+    			#end
+    		</select>
+        </td>
+        <td>
+    		<input class="whitebtn" id="ciDelete" type="button" value="删除" /><br />
+    		<input class="whitebtn" id="ciDeleteAll" type="button" value="全部删除" /><br />
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+j('#ciDelete').click(function() {
+	j('#ciValue option:selected').remove();	   
+});
+j('#ciDeleteAll').click(function() {
+	if (confirm("确实要删除全部内容吗")) {
+		j('#ciValue option').remove();	   
+	}
+});
+j("#ciValue").dblclick(function(){
+    j("option:selected",this).remove();	   
+});
+j("#ciAdd").click(function(){
+	var text = j('#ciInput').val();
+	text = j.trim(text);
+	
+	if (text == '') {
+		return;
+	}
+
+	// validate
+	if (text.indexOf(",") > 0) {
+		alert("输入不能包含逗号");
+		return
+	}
+	
+    // using jQuery
+    if (j.isFunction(window.commaInputValidate)) {
+		var result = commaInputValidate(text);
+		if ( result!= true){
+			alert(result);
+			return
+		}
+	} 
+	
+	// Add
+	var pos = 0;
+	var found = false
+	while(pos < j('#ciValue option').length){
+		if( text === j('#ciValue option')[pos].value){
+			j('#ciInput').val("");
+			j('#ciValue option')[pos].selected = true;
+			found = true;
+		} else {
+			j('#ciValue option')[pos].selected = false;
+		}
+		pos = pos + 1;
+	}
+
+	if (!found) {
+		j('#ciValue').append('<option value="' + text + '" selected="true">' + text + '</option>');
+		j('#ciInput').val("");
+	}
+});
+function getCiValues(){
+	return getAllSelectValue('ciValue');
+}
+</script>

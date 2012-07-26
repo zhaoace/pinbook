@@ -1,0 +1,16 @@
+<div style="display: none">
+<iframe id='logout' name='logout' src="$UAMLogoutPage" height="0" width="0">
+</iframe>
+</div>
+<script language='javascript'>
+var iframe=document.getElementById("logout");  
+if(iframe.attachEvent){  
+    iframe.attachEvent("onload",function(){  
+     window.location.href='$UAMLoginPage' 
+    });  
+}else{  
+    iframe.onload=function(){  
+     window.location.href='$UAMLoginPage'  
+    };  
+}  
+</script>

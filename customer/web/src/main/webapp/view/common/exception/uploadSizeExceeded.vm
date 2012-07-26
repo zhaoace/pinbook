@@ -1,0 +1,6 @@
+#set($page_title = '上传文件大小超限')
+<div class="TableForm">
+	<h2 class="Mtit">$page_title</h2>
+	<br />
+    <label class="message">上传的文件过大（最大100MB），请对文件做拆分后进行导入！</label>
+</div>

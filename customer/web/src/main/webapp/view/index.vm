@@ -1,0 +1,5 @@
+#set($page_title = '首页')
+<label class="OrgTip" style="left">品书</label>
+<p class="lastdate">
+	<font color="white">$!systemUtil.hostInfo.name</font>
+</p>

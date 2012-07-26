@@ -1,0 +1,14 @@
+#set($page_title = '权限尚未分配完整')
+<div class="TableForm">
+	<h2 class="Mtit">您的权限尚未分配完整!</h2>
+	<div class="AreaTb">
+		<div>
+    		<img src="#springUrl('/htdocs/images/fail.png')"/>
+    		<label style="font-size:30px;font-weight:bold;">请联系管理员配置相关权限！</label>
+		</div>
+		<div style="float:right;margin-top:-20px;margin-right:40px;">
+            <a href="javascript:history.go(-1)">后退</a> 或者
+            <a href="#springUrl('/j_spring_security_logout')" target="_self">重新登陆</a>
+    	</div>
+    </div>
+</div>

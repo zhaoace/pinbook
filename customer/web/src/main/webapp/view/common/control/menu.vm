@@ -1,0 +1,23 @@
+<div id="MenuList" class="Menu">
+	<ul id="nav">
+    	#set($menuList = $authTokenHolder.getAuthToken().menuList)
+    	#foreach($menu in $menuList)
+    	<li class="top"><a #if($stringUtil.equals('#', $menu.url)) href="javascript:function(){};" #else href="#springUrl($!menu.url)" #end class="top_link"><span #if(!$menu.children.isEmpty()) class="down" #end>$!menu.name</span></a>
+    		#if(!$menu.children.isEmpty())
+    		<ul class="sub">
+    			#foreach($subMenu in ${menu.children})
+    			<li><a #if($stringUtil.equals('#', $subMenu.url)) href="javascript:function(){};" #else href="#springUrl($!subMenu.url)" #end #if(!$subMenu.children.isEmpty()) class="fly" #end>$!subMenu.name</a>
+              	 #showSubMenu($subMenu)
+                </li>
+    			#end
+            </ul>
+    		#end
+        </li>
+		#end
+    </ul>
+</div>
+<script type="text/javascript">
+j(document).ready(function(){ 
+	//j('ul').bgiframe(); 该遮罩在IE8显示有问题,导致遮罩位置下的输入框无法输入
+}); 
+</script>
