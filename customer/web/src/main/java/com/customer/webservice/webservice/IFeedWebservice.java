@@ -7,7 +7,7 @@ import javax.ws.rs.QueryParam;
 
 import com.customer.webservice.dto.ResponseDTO;
 
-@Path("/")
+
 public interface IFeedWebservice {
 
 	@GET
