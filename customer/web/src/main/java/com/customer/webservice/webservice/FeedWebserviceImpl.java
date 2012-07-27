@@ -34,7 +34,7 @@ public class FeedWebserviceImpl implements IFeedWebservice {
 		
 		System.out.println("ResponseDTO  getFeedsByUserID,platform=" + platform
 				+ ", startCursor=" + startCursor + ", size=" + size);
-
+		
 		String result = this.BusinessObjectToResponseResultJSON(this
 				.mockFeedDTO(platform, startCursor, size));
 		ResponseDTO response = this.moceResponseDTO(result);
@@ -110,16 +110,23 @@ public class FeedWebserviceImpl implements IFeedWebservice {
 
 	private BookDetailDTO mockBookDetailDTO() {
 		BookDetailDTO bookDetailDTO = new BookDetailDTO();
-		bookDetailDTO.setBookname("�׾��� Moby Dick");
+		bookDetailDTO.setBookname("白鲸记");
 		bookDetailDTO.setBookPages(442);
 		bookDetailDTO.setDemoReadPagess(new ArrayList<String>());
 		bookDetailDTO
-				.setDescription("ȫ����442퓣����ֳ�84�£����ƪ���^�����L����һ���J�鲻�m���������x����x����Ӣ���α��˸壬1851����棬�x�߷���ʮ���䵭����һ��ֻ�u��5��������÷���S���tһ��ĬĬ�o��һֱ�������Lӛ����������ʮ�꣨1920�꣩�ᣬ÷���S���������ČW�ĵ�λ�ū@�������u�r�����˼{�f�^�������꡶���Lӛ������һ���뷨��ϣ���@�������Ҍ��ġ��������գ������Lӛ���ѱ�ҕ�������ČWʷ������С�f֮һ��");
+				.setDescription("全書有442頁，共分成84章，因為篇幅過度冗長，曾一度認為不適合青少年讀者閱讀，在英國多次被退稿，1851年出版，讀者反應十分冷淡，第一年只賣出5本，作者梅爾維爾則一生默默無聞；一直到《白鯨記》出版了七十年（1920年）後，梅爾維爾在美國文學的地位才獲得重新評價，福克納說過：「看完《白鯨記》，第一個想法是希望這本書是我寫的。」至今日，《白鯨記》已被視為美國文學史上最偉大的小說之一。");
 		bookDetailDTO.setId("id9527");
 		bookDetailDTO.setPicURL("http://img3.douban.com/lpic/s3830735.jpg");
 		bookDetailDTO.setType("book");
-		bookDetailDTO.setAuthor("÷���S��");
+		bookDetailDTO.setAuthor("梅爾維爾");
 		bookDetailDTO.setWhoRead("zhaoli");
+		bookDetailDTO.setTags(new ArrayList<String>());
+		bookDetailDTO.getTags().add("music");
+		bookDetailDTO.getTags().add("novel");
+		bookDetailDTO.getTags().add("love");
+		bookDetailDTO.getTags().add("animal");
+		bookDetailDTO.getTags().add("war");
+		bookDetailDTO.getTags().add("craft");
 		return bookDetailDTO;
 	}
 
@@ -136,7 +143,7 @@ public class FeedWebserviceImpl implements IFeedWebservice {
 		commentDTO.setAuthor("zhaoli");
 		commentDTO.setColletioinID("colletioinID=5967");
 		commentDTO.setCommentID("commentID=1598");
-		commentDTO.setContent("�Ȿ������̫NB�ˣ��ҿ��˺ö�飡");
+		commentDTO.setContent("这本书真是太NB了，我看了好多遍！");
 		commentDTO.setCreateTime(new Date());
 		return commentDTO;
 	}

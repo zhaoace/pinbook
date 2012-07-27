@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd   
+           http://www.springframework.org/schema/context   
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<context:component-scan base-package="com.customer" />
+	
+	<!-- velocity config -->
+	<import resource="velocity-config-normal.xml"/>
+
+	<!-- 处理velocity布局 -->
+	<bean id="viewResolver"
+		class="com.customer.web.common.resolver.VelocityMultipleLayoutViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".vm" />
+		<property name="contentType" value="text/html; charset=utf-8"></property>
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="mappings">
+			<map>
+				<!-- 个性化布局扩展在此添加，需要将个性的放前面 -->
+				<entry key="/login*" value="common/layout/blank.vm" />
+				<entry key="/accessDenied*" value="common/layout/blank.vm" />
+				<entry key="/result*" value="common/layout/blank.vm" />
+				
+				<!-- 默认布局 -->
+				<entry key="*" value="common/layout/default.vm" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- 异常处理 -->
+	<bean id="exceptionResolver"
+		class="com.customer.web.common.resolver.WebExceptionResolver">
+		<property name="defaultErrorView">
+			<value>/common/exception/error</value>
+		</property>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">/exception/uploadSizeExceeded</prop>
+			</props>
+		</property>
+	</bean>
+</beans>  
